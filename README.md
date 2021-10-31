@@ -1,15 +1,15 @@
 import numpy as np
 import time
-
+i = 0
 N = 3
 goal = [i+1 for i in range(N*N)]
 goal[N*N-1] = 0
 
 class Board:
-#construct a board from an N-by-N array of tiles
+
     def __init__(self, tiles):
         self.Array = np.array(tiles).reshape(N,N)        
-# return number of blocks out of place
+
     def hamming(self):
         temp = N*N-1-sum(sum(self.Array == Board(goal).Array))
         if sum(sum(np.argwhere(self.Array == 0))) == 2*(N-1):            
@@ -17,18 +17,18 @@ class Board:
         else:
             return temp
 
-# return sum of Manhattan distances between blocks and goal
+
     def manhattan(self):
         manhattan_i = []
         for i in range(N*N-1):
             manhattan_i.append(sum(sum(abs(np.argwhere(self.Array == i+1)-np.argwhere(Board(goal).Array == i+1)))))
         return sum(manhattan_i) 
 
-# does this board equal y
+
     def equals(self,y):
         return sum(sum(self.Array == y.Array)) == N*N
 
-# return an Iterable of all neighboring board positions
+
     def neighbours(self):
         location = np.argwhere(self.Array==0)[0]
         x = location[0]
@@ -52,7 +52,7 @@ class Board:
             copies[3][x][y+1] = 0        
             neighbors.append(Board(copies[3]))
         return neighbors
-# return a string representation of the board
+
     def toString(self):
         for i in range(N):
             for j in range(N):
@@ -131,6 +131,7 @@ class Solver:
                                 Flag = 0
                         if Flag == 1:    
                             self.pq.insert(State(neighbor,dequeue.Move+1,dequeue))
+                            
         else:
             print("It is not solvable!")
     def isSolvable(self):
@@ -160,4 +161,10 @@ if __name__ == '__main__':
     solve.toString()
     b = [1,2,3,4,5,6,7,8,0]
     test = Board(b)
-    solve = Solver(test)
+    solve = Solver(test)![1](https://user-images.githubusercontent.com/93483043/139594416-ffc3bccd-fa04-45fd-900f-7b4d74c107c3.PNG)
+![2](https://user-images.githubusercontent.com/93483043/139594417-2e112379-b533-49a4-b9b0-e4c39ca7e044.PNG)
+![3](https://user-images.githubusercontent.com/93483043/139594418-fd609939-d19e-4ecf-ba4a-efb09099dd9d.PNG)
+![4](https://user-images.githubusercontent.com/93483043/139594419-bbea77e2-7491-433a-bc6b-69189a5c28bf.PNG)
+![5](https://user-images.githubusercontent.com/93483043/139594420-1ba3997e-6bb6-4536-8dbe-22aa6fbe70a1.PNG)
+![6](https://user-images.githubusercontent.com/93483043/139594421-9a307fb7-7041-437e-893e-898e580b0192.PNG)
+![7](https://user-images.githubusercontent.com/93483043/139594422-9d48c86c-4b11-4bcf-8750-25b05a8af38e.PNG)
