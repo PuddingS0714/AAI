@@ -161,7 +161,8 @@ if __name__ == '__main__':
     solve.toString()
     b = [1,2,3,4,5,6,7,8,0]
     test = Board(b)
-    solve = Solver(test)![1](https://user-images.githubusercontent.com/93483043/139594416-ffc3bccd-fa04-45fd-900f-7b4d74c107c3.PNG)
+    solve = Solver(test)
+![1](https://user-images.githubusercontent.com/93483043/139594416-ffc3bccd-fa04-45fd-900f-7b4d74c107c3.PNG)
 ![2](https://user-images.githubusercontent.com/93483043/139594417-2e112379-b533-49a4-b9b0-e4c39ca7e044.PNG)
 ![3](https://user-images.githubusercontent.com/93483043/139594418-fd609939-d19e-4ecf-ba4a-efb09099dd9d.PNG)
 ![4](https://user-images.githubusercontent.com/93483043/139594419-bbea77e2-7491-433a-bc6b-69189a5c28bf.PNG)
